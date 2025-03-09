@@ -180,15 +180,13 @@ INSERT INTO trabajo_a_tiempo_completo (nombre_empleado, nombre_sucursal, sueldo)
     
 /*
 De acuerdo despues de obtener todos los datos En este Script anteriormente
-Tocara hacer las consultas correspondientes que se nos piden 
+tocara hacer las consultas correspondientes que se nos piden.
 */
 use tarea3_banco;
-SELECT * FROM cliente; 
-
+--SELECT * FROM cliente; 
 -- 1.​ Obtener todos los clientes que viven en la ciudad de 'Segovia'.
--- Dado que la ciudad Segovia no se encuentra en la tabla cliente, se encuentra en la tabla surcusal y esta con el nombre_sucursal. 
+-- Dado que la ciudad Segovia no se encuentra en la tabla cliente, se encuentra en la tabla surcusal y y pertence a la columna nombre_sucursal. 
 SELECT * FROM sucursal WHERE nombre_sucursal = 'Segovia'; 
-
 
 -- 2. Mostrar todas las sucursales que tienen más de 500 mil en activos pero menos de millones .
 SELECT * FROM sucursal WHERE activos > 500000 AND activos < 1000000; 
@@ -202,12 +200,11 @@ SELECT nombre_cliente, ciudad_cliente FROM cliente;
 SELECT nombre_empleado, calle FROM empleado; 
 
 -- 5.​ Obtener una lista combinada de todas las ciudades donde hay clientes y empleados, sin duplicados.
--- Se hace la union de los conjuntos de cuidad_cliente y cuidad de la tabla cliente y tabla empleado sin considerar duplicados
+-- Se hace la union de los 2 conjuntos de cuidad_cliente y ciudad de la tabla cliente y tabla empleado sin considerar duplicados
 SELECT  ciudad_cliente FROM cliente
 UNION 
 SELECT ciudad FROM empleado; 
 -- SELECT * FROM empleado; 
-
 -- 6.​ Mostrar una lista de todos los sueldos de los empleados, sin duplicados.
 -- De manera similar anteriormente se hace la union de conjuntos sueldo de las tablas: trabajo_por_horas y trabajo_a_tiempo_completo 
 SELECT sueldo FROM trabajo_por_horas
@@ -215,9 +212,8 @@ UNION
 SELECT sueldo FROM trabajo_a_tiempo_completo; 
 
 -- 7.​ Obtener los nombres de clientes que tienen al menos una cuenta registrada.
--- Hacemos la proyeccion. Se seleccionan unicamente nombre_cliente de impositor
+-- Hacemos la proyeccion.Se seleccionan unicamente nombre_cliente de impositor
 SELECT nombre_cliente FROM impositor;
- 
  
 -- 8.​ Listar los nombres de las sucursales que han otorgado al menos un préstamo.
 SELECT nombre_sucursal FROM prestamo;  
@@ -247,9 +243,12 @@ SELECT nombre_cliente FROM cliente
 WHERE nombre_cliente NOT IN (SELECT nombre_cliente FROM prestatario);
 
 -- 14.​Mostrar los nombres que aparezcan tanto en clientes como en empleados.
-SELECT nombre_cliente AS nombre FROM cliente c
+SELECT DISTINCT c.nombre_cliente AS nombre
+FROM cliente c
 WHERE EXISTS (
-    SELECT 1 FROM empleado e WHERE e.nombre_empleado = c.nombre_cliente
+	SELECT 1
+	FROM empleado e
+	WHERE e.nombre_empleado = c.nombre_cliente
 );
 
 -- 15.​Obtener la relación entre clientes y sus prestamos.
