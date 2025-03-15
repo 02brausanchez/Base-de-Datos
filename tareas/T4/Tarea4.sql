@@ -1,7 +1,6 @@
 -- ===========================================================
 -- Tarea 4: OPERACIONES AVANZADAS EN MYSQL
 -- Base de datos utilizada: banco
--- Integrantes: Sanchez Morales Braulio Eduardo && Silva Martínez Jesús Alfredo
 -- ===========================================================
 USE banco;
 -- ===========================================================
