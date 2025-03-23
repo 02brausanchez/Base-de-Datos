@@ -1,7 +1,6 @@
 -- ===================================================
 -- TAREA 5: TIPOS DE DATOS, RESTRICCIONES Y ALTER EN MYSQL
 -- Base de datos utilizada: Lab5
--- Integrantes: Sánchez Morales Braulio Eduardo && Silva Martinez Jesús Alfredo
 -- ===================================================
 -- SCRIPT SQL: TAREA 5 - ALTER TABLE Y MODIFICACIÓN DE TABLAS
 -- Objetivo: Practicar la modificación de estructuras de bases de datos en MySQL.
